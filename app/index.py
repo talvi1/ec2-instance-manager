@@ -17,7 +17,11 @@ def home_page():
     metric_name = 'CPUUtilization'
     namespace = 'AWS/EC2'
     statistic = 'Average'
-
+    x = 0
+    active_instances = []
+    for x, instance in enumerate(instances):
+        if (instance.tags[0]['Key'] == 'worker' and instance.state['Name'] == 'running'):           
+            active_instances.append(instance.instance_id)
     cpu = client.get_metric_statistics(
         Period=1 * 60,
         StartTime=datetime.utcnow() - timedelta(seconds=30 * 60),
@@ -36,10 +40,6 @@ def home_page():
         cpu_stats.append([time,point['Average']])
 
     cpu_stats = sorted(cpu_stats, key=itemgetter(0))
-    print(cpu_stats)
-    for instance in instances:
-        if (instance.tags[0]['Key'] == 'worker'):
-            print(instance.id)
-            print(instance.state)
-            #print(instance.tags)
+    print(active_instances)
+
     return render_template('home.html')
