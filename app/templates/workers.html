@@ -8,9 +8,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>
     
 
-<h1>Welcome to your EC2 Instance Manager!</h1>
-
-
+<h1>Welcome to your EC2 Worker List!</h1>
 <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 
 <script>
@@ -18,7 +16,8 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 
 function createChart(x_val, y_val)
 {
-    new Chart("myChart", {
+  
+  new Chart("myChart", {
   type: "line",
   data: {
     labels: x_val,
@@ -33,13 +32,21 @@ function createChart(x_val, y_val)
   options: {
     legend: {display: false},
     scales: {
-      yAxes: [{ticks: {min: 0, max:100}}],
+      yAxes: [{ticks: {min: 0, max:5}}],
     }
   }
 });   
-}    
-var x_val = [50,60,70,80,90,100,110,120,130,140,150];
-var y_val = [7,8,8,9,9,9,10,11,14,14,15];
+}
+var cpu_stats = {{value}}
+console.log(cpu_stats)
+var x_val = [];
+var y_val = [];
+for (var i = 0; i < cpu_stats.length; i++)
+{
+  x_val.push(cpu_stats[i][0]);
+  y_val.push(cpu_stats[i][1]);
+}
+
 createChart(x_val, y_val)
 
  
