@@ -52,23 +52,40 @@ def workers():
     metric_name = 'CPUUtilization'
     namespace = 'AWS/EC2'
     statistic = 'Average'
-    cpu = client.get_metric_statistics(
+    active_instances = []
+    for x, instance in enumerate(instances):
+        if (instance.tags[0]['Key'] == 'worker' and instance.state['Name'] == 'running'):           
+            active_instances.append(instance.instance_id)
+    cpu = []
+    for x, instance_id in enumerate(active_instances):
+
+        cpu.append([instance_id, client.get_metric_statistics(
         Period=1 * 60,
         StartTime=datetime.utcnow() - timedelta(seconds=30 * 60),
         EndTime=datetime.utcnow() - timedelta(seconds=0 * 60),
         MetricName=metric_name,
         Namespace=namespace,  # Unit='Percent',
         Statistics=[statistic],
-        Dimensions=[{'Name': 'InstanceId', 'Value': 'i-073587260f04b73ce'}]
-    )
-  #  print(cpu)
+        Dimensions=[{'Name': 'InstanceId', 'Value': instance_id}]
+        )])
+        #print(instance_id)
     cpu_stats = []
-    for point in cpu['Datapoints']:
-        hour = point['Timestamp'].hour
-        minute = point['Timestamp'].minute
-        time = hour + minute/60
-        cpu_stats.append([time,point['Average']])
+    for x in range(len(cpu)):
+        temp = []
+        for point in cpu[x][1]['Datapoints']:
+            hour = point['Timestamp'].hour
+            minute = point['Timestamp'].minute
+            time = hour + minute/60
+            temp.append([time, point['Average']])
+        temp = sorted(temp, key=itemgetter(0))
+        print(temp)
+        cpu_stats.append([str(cpu[x][0]), temp])
+
+    # for point in cpu['Datapoints']:
+    #     hour = point['Timestamp'].hour
+    #     minute = point['Timestamp'].minute
+    #     time = hour + minute/60
+    #     cpu_stats.append([time,point['Average']])
 
     cpu_stats = sorted(cpu_stats, key=itemgetter(0))
-    print(len(cpu_stats))
     return render_template('workers.html', value=cpu_stats)

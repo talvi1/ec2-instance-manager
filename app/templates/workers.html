@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<style>
+div {text-align: center;} 
+</style>
 <body>
 
 
@@ -9,18 +12,37 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     
 
 <h1>Welcome to your EC2 Worker List!</h1>
-<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+<div id="charts"></div>
 
 <script>
-
-
-function createChart(x_val, y_val)
+var cpu_stats = {{value | tojson}}
+var wrapper = document.getElementById("charts");
+var charts_HTML = '';
+for (var i = 0; i < cpu_stats.length; i++)
 {
+  charts_HTML += '<div style="width:50%;max-width:350px">InstanceID: '+cpu_stats[i][0]+'<canvas id="myChart'+i+'"></canvas></div>'
   
-  new Chart("myChart", {
+}
+wrapper.innerHTML = charts_HTML  
+
+function createChart(x_val, y_val, chart_id)
+{
+  var new_x = []
+  for (var i = 0; i < x_val.length; i++)
+  {
+    var time = x_val[i];
+    var hours = Math.floor(time);
+    var minutes = (time*60)%60;
+    if (i%1 == 0)
+      var time_str = hours + ':' + minutes;
+    else 
+      var time_str = ''
+    new_x.push(time_str);
+  }
+  new Chart(chart_id, {
   type: "line",
   data: {
-    labels: x_val,
+    labels: new_x,
     datasets: [{
       fill: false,
       lineTension: 0,
@@ -32,22 +54,35 @@ function createChart(x_val, y_val)
   options: {
     legend: {display: false},
     scales: {
-      yAxes: [{ticks: {min: 0, max:5}}],
+      yAxes: [{
+        display: true, 
+        scaleLabel:{
+          display: true,
+          labelString: 'CPU Utilization (%)'
+        },
+        ticks: {min: 0, max: 100}
+      }],
     }
   }
-});   
-}
-var cpu_stats = {{value}}
-console.log(cpu_stats)
-var x_val = [];
-var y_val = [];
-for (var i = 0; i < cpu_stats.length; i++)
-{
-  x_val.push(cpu_stats[i][0]);
-  y_val.push(cpu_stats[i][1]);
+  });   
 }
 
-createChart(x_val, y_val)
+
+for (var i = 0; i < cpu_stats.length; i++)
+{
+  var x_val = [];
+  var y_val = [];
+  for(var j = 0; j < cpu_stats[i][1].length; j++)
+  {
+    
+    x_val.push(cpu_stats[i][1][j][0]);
+    y_val.push(cpu_stats[i][1][j][1]);
+  }
+
+  createChart(x_val, y_val, 'myChart'+i)
+}
+
+
 
  
 </script>
