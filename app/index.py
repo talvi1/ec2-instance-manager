@@ -7,7 +7,7 @@ from operator import itemgetter
 
 
 
-
+@manager.route('/', methods=['GET'])
 @manager.route('/home', methods=['GET'])
 def home_page():
     
@@ -17,7 +17,6 @@ def home_page():
     metric_name = 'CPUUtilization'
     namespace = 'AWS/EC2'
     statistic = 'Average'
-    x = 0
     active_instances = []
     for x, instance in enumerate(instances):
         if (instance.tags[0]['Key'] == 'worker' and instance.state['Name'] == 'running'):           
@@ -40,9 +39,7 @@ def home_page():
         cpu_stats.append([time,point['Average']])
 
     cpu_stats = sorted(cpu_stats, key=itemgetter(0))
-    print(active_instances)
-
-    return render_template('home.html')
+    return render_template('home.html', num=len(active_instances))
 
 @manager.route('/workers', methods=['GET'])
 def workers():
@@ -78,7 +75,6 @@ def workers():
             time = hour + minute/60
             temp.append([time, point['Average']])
         temp = sorted(temp, key=itemgetter(0))
-        print(temp)
         cpu_stats.append([str(cpu[x][0]), temp])
 
     # for point in cpu['Datapoints']:
@@ -89,3 +85,16 @@ def workers():
 
     cpu_stats = sorted(cpu_stats, key=itemgetter(0))
     return render_template('workers.html', value=cpu_stats)
+
+@manager.route('/auto-scale-policy', methods=['GET', 'POST'])
+def auto_scaler_configuration():
+    if request.method == "POST":
+        cpu_increase = request.form.get('cpu_increase')
+        cpu_decrease = request.form.get('cpu_decrease')
+        ratio_increase = request.form.get('ratio_increase')
+        ratio_decrease = request.form.get('ratio_decrease')
+        print(cpu_increase)
+        print(cpu_decrease)
+        print(ratio_increase)
+        print(ratio_decrease)
+    return render_template('auto-scaler.html')

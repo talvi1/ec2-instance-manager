@@ -32,7 +32,8 @@ function createChart(x_val, y_val, chart_id)
   {
     var time = x_val[i];
     var hours = Math.floor(time);
-    var minutes = (time*60)%60;
+    var minutes = Math.round((time*60)%60);
+    console.log(minutes)
     if (i%1 == 0)
       var time_str = hours + ':' + minutes;
     else 

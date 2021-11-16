@@ -10,12 +10,19 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 
 <h1>Welcome to your EC2 Instance Manager!</h1>
 
-<h2>Active Workers</h2>
-<p><a href="/workers">Worker Stats</a></p>
+<h2>Worker Stats</h2>
+<p>Current Active Workers: {{num}}</p>
+<p><a href="/workers">Link to Detailed Worker Stats</a></p>
  
 <h2>Link to Load Balanced User App</h2>
 <p><a href="http://user-app-balance-3633947.us-east-1.elb.amazonaws.com">Image Viewer App</a></p>
 
+<h2>Add or Remove Worker Instances</h2>
+<button type="button" onclick="alert('Worker Instance Added')">Add</button>
+<button type="button" onclick="alert('Worker Instance Removed')">Remove</button>
+
+<h2>Auto Scaling</h2>
+<p><a href="/auto-scale-policy">Configure Auto Scaling Policy</a></p>
 </body>
 </html>
 

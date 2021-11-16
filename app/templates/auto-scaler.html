@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .slidecontainer {
+    width: 100%;
+    }
+</style>
+    </head>
+<body>
+
+
+
+
+<h1>Autoscaler Policy Configuration</h1>
+
+
+<div class="slidecontainer">
+    <form action="{{url_for('auto_scaler_configuration')}}" method="post">
+        <p>CPU Utilization Thresold to Expand Worker Pool</p>
+        <span id="result1"></span><br>
+        <input id='slide1' name='cpu_increase' type="range" min="1" max="100" value="50" oninput="show_value();">
+        <p>CPU Utilization Thresold to Shrink Worker Pool</p>
+        <span id="result2"></span><br>
+        <input id='slide2' name='cpu_decrease' type="range" min="1" max="100" value="50" oninput="show_value();">
+        <p>Ratio to Expand Worker Pool</p>
+        <span id="result3"></span><br>
+        <input id='slide3' name='ratio_increase' type="range" min="1" max="100" value="50" oninput="show_value();">
+        <p>Ratio to Shrink Worker Pool</p>
+        <span id="result4"></span><br>
+        <input id='slide4' name='ratio_decrease' type="range" min="1" max="100" value="50" oninput="show_value();">
+        <br><br>
+        <input type="submit" value="Apply Policy">
+    </form>
+  </div>
+
+</body>
+
+<script>
+
+
+function show_value(){
+    var result1 = document.getElementById("result1");
+    var mine1 = document.getElementById("slide1");
+    result1.innerText = mine1.value;
+    var result2 = document.getElementById("result2");
+    var mine2 = document.getElementById("slide2");
+    result2.innerText = mine2.value;
+    var result3 = document.getElementById("result3");
+    var mine3 = document.getElementById("slide3");
+    result3.innerText = mine3.value;
+    var result4 = document.getElementById("result4");
+    var mine4 = document.getElementById("slide4");
+    result4.innerText = mine4.value;
+}   
+</script>
+</html>
