@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
+<meta http-equiv="refresh" content="60"> 
 <style>
 div {text-align: center;} 
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 </style>
 <body>
 
@@ -12,20 +17,34 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     
 
 <h1>Welcome to your EC2 Worker List!</h1>
-<div id="charts"></div>
+<p><a href="/home">Home</a></p>
+
+<div class ="grid-container">
+<div id="charts_cpu"></div>
+<div id="charts_http"></div>
+</div>
 
 <script>
-var cpu_stats = {{value | tojson}}
-var wrapper = document.getElementById("charts");
-var charts_HTML = '';
+var cpu_stats = {{cpu | tojson}}
+var http_stats = {{http | tojson}}
+var wrapper_http = document.getElementById("charts_http")
+var wrapper_cpu = document.getElementById("charts_cpu");
+var charts_HTML_cpu = '';
+var charts_HTML_http = '';
 for (var i = 0; i < cpu_stats.length; i++)
 {
-  charts_HTML += '<div style="width:50%;max-width:350px">InstanceID: '+cpu_stats[i][0]+'<canvas id="myChart'+i+'"></canvas></div>'
+  charts_HTML_cpu += '<div style="width:100%;max-width:350px">InstanceID: '+cpu_stats[i][0]+'<canvas id="myChart'+i+'"></canvas></div>'
   
 }
-wrapper.innerHTML = charts_HTML  
+for (var i = 0; i < http_stats.length; i++)
+{
+  charts_HTML_http += '<div style="width:100%;max-width:350px">InstanceID: '+http_stats[i][0]+'<canvas id="myChart_http'+i+'"></canvas></div>'
+  
+}
+wrapper_cpu.innerHTML = charts_HTML_cpu  
+wrapper_http.innerHTML = charts_HTML_http
 
-function createChart(x_val, y_val, chart_id)
+function createChart(x_val, y_val, chart_id, stra)
 {
   var new_x = []
   for (var i = 0; i < x_val.length; i++)
@@ -59,7 +78,7 @@ function createChart(x_val, y_val, chart_id)
         display: true, 
         scaleLabel:{
           display: true,
-          labelString: 'CPU Utilization (%)'
+          labelString: stra
         },
         ticks: {min: 0, max: 100}
       }],
@@ -80,8 +99,24 @@ for (var i = 0; i < cpu_stats.length; i++)
     y_val.push(cpu_stats[i][1][j][1]);
   }
 
-  createChart(x_val, y_val, 'myChart'+i)
+  createChart(x_val, y_val, 'myChart'+i, 'CPU Utilization (%)')
 }
+
+for (var i = 0; i < http_stats.length; i++)
+{
+  var x_val1 = [];
+  var y_val1 = [];
+  for(var j = 0; j < http_stats[i][1].length; j++)
+  {
+    
+    x_val1.push(http_stats[i][1][j][0]);
+    y_val1.push(http_stats[i][1][j][1]);
+  }
+
+  createChart(x_val1, y_val1, 'myChart_http'+i, 'HTTP Requests Per Min')
+}
+
+
 
 
 

@@ -14,22 +14,22 @@
 
 
 <h1>Autoscaler Policy Configuration</h1>
-
+<p><a href="/home">Home</a></p>
 
 <div class="slidecontainer">
     <form action="{{url_for('auto_scaler_configuration')}}" method="post">
         <p>CPU Utilization Thresold to Expand Worker Pool</p>
         <span id="result1"></span><br>
-        <input id='slide1' name='cpu_increase' type="range" min="1" max="100" value="50" oninput="show_value();">
+        <input id='slide1' name='cpu_increase' type="range" min="1" max="100" value="75" oninput="show_value();">
         <p>CPU Utilization Thresold to Shrink Worker Pool</p>
         <span id="result2"></span><br>
-        <input id='slide2' name='cpu_decrease' type="range" min="1" max="100" value="50" oninput="show_value();">
+        <input id='slide2' name='cpu_decrease' type="range" min="1" max="100" value="25" oninput="show_value();">
         <p>Ratio to Expand Worker Pool</p>
         <span id="result3"></span><br>
-        <input id='slide3' name='ratio_increase' type="range" min="1" max="100" value="50" oninput="show_value();">
+        <input id='slide3' name='ratio_increase' type="range" min="1" max="6" value="1" oninput="show_value();">
         <p>Ratio to Shrink Worker Pool</p>
         <span id="result4"></span><br>
-        <input id='slide4' name='ratio_decrease' type="range" min="1" max="100" value="50" oninput="show_value();">
+        <input id='slide4' name='ratio_decrease' type="range" min="1" max="6" value="1" oninput="show_value();">
         <br><br>
         <input type="submit" value="Apply Policy">
     </form>

@@ -2,27 +2,44 @@
 <html>
 <body>
 
-
+<meta http-equiv="refresh" content="60"> 
 <script
 src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>
     
 
 <h1>Welcome to your EC2 Instance Manager!</h1>
-
+<div><mark><b>{{error}}</b></mark></div>
 <h2>Worker Stats</h2>
-<p>Current Active Workers: {{num}}</p>
+<ul>
+<li>Active Workers: {{num[0]}}</li>
+<li>Stopped Workers: {{num[1]}}</li>
+<li>Workers Being Started: {{num[2]}}</li>
+<li>Workers Being Stopped: {{num[3]}}</li>
+</ul>
 <p><a href="/workers">Link to Detailed Worker Stats</a></p>
  
 <h2>Link to Load Balanced User App</h2>
 <p><a href="http://user-app-balance-3633947.us-east-1.elb.amazonaws.com">Image Viewer App</a></p>
 
 <h2>Add or Remove Worker Instances</h2>
-<button type="button" onclick="alert('Worker Instance Added')">Add</button>
-<button type="button" onclick="alert('Worker Instance Removed')">Remove</button>
-
+<form action="{{url_for('add_remove')}}" method="POST">
+<button type="submit" name="add" value="added">Add</button>
+<button type="submit" name="remove" value="removed">Remove</button>
+</form>
 <h2>Auto Scaling</h2>
 <p><a href="/auto-scale-policy">Configure Auto Scaling Policy</a></p>
+<h2>Stop Manager and Workers</h2>
+<form action="{{url_for('stop_application')}}" method="POST">
+    <button type="submit" name="stop" value="stopped">Stop Manager and Workers</button>
+</form>
+<h2>Delete Application Data</h2>
+<form action="{{url_for('delete_application_data')}}" method="POST">
+    <button type="submit" name="delete" value="deleted">Delete</button>
+</form>
+
+
+
 </body>
 </html>
 
