@@ -4,7 +4,7 @@ import boto3
 from multiprocessing.connection import Client
 from datetime import datetime, timedelta
 from operator import itemgetter
-from app.config import db_config
+from app.config import db_config, db_config_manager
 import mysql.connector
 
 def connect_to_database():
@@ -13,10 +13,21 @@ def connect_to_database():
                                     host=db_config['host'],
                                     database=db_config['database'])
 
+def connect_to_database_manager():
+    return mysql.connector.connect(user=db_config_manager['user'], 
+                                    password=db_config_manager['password'], 
+                                    host=db_config_manager['host'],
+                                    database=db_config_manager['database'])
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
         db = g._database = connect_to_database()
+    return db
+
+def get_db_manager():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = connect_to_database_manager()
     return db
 
 @manager.route('/', methods=['GET', 'POST'])
@@ -121,13 +132,6 @@ def auto_scaler_configuration():
         ratio_increase = request.form.get('ratio_increase')
         ratio_decrease = request.form.get('ratio_decrease')
 
-        address = ('localhost', 12345)
-        conn = Client(address, authkey=b'mypass')
-        conn.send('hello')
-        print(cpu_increase)
-        print(cpu_decrease)
-        print(ratio_increase)
-        print(ratio_decrease)
     return render_template('auto-scaler.html')
 
 @manager.route('/add-remove', methods=['GET', 'POST'])
@@ -176,6 +180,7 @@ def stop_application():
     if request.method == "POST":
         if request.form.get('stop') == 'stopped': 
             ec2_client = boto3.client('ec2')
+
     return redirect("/home")
 
 @manager.route('/delete-application-data', methods=['GET', 'POST'])
