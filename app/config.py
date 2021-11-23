@@ -7,4 +7,4 @@ db_config = {'user': 'admin',
 db_config_manager = {'user': 'root', 
                     'password': 'ece1779pass',
              'host': '127.0.0.1',
-             'database': 'webapp'}
+             'database': 'manager'}

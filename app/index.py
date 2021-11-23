@@ -1,11 +1,10 @@
 from flask import render_template, redirect, url_for, request, g
-from app import manager
 import boto3
-from multiprocessing.connection import Client
 from datetime import datetime, timedelta
 from operator import itemgetter
-from app.config import db_config, db_config_manager
 import mysql.connector
+from app import manager
+from app.config import db_config, db_config_manager
 
 def connect_to_database():
     return mysql.connector.connect(user=db_config['user'], 
@@ -33,6 +32,10 @@ def get_db_manager():
 @manager.route('/', methods=['GET', 'POST'])
 @manager.route('/home', methods=['GET', 'POST'])
 def home_page():
+    """
+    home_page() - Shows basic worker statsc such as active, stopped, being started and being stopped # of instances.
+    Gets the # of active workers for the past 30 minutes from manager database and displays them to the webpage.
+    """
     ec2 = boto3.resource('ec2')
     ec2_client = boto3.client('ec2')
     instances = ec2.instances.all()
@@ -56,10 +59,32 @@ def home_page():
             stopping_instances.append(instance.instance_id)
         num = [len(active_instances), len(stopped_instances), len(pending_instances), len(stopping_instances)]
 
-    return render_template('home.html', num=num)
+    con = get_db_manager()
+    cursor = con.cursor()
+    query = '''SELECT * FROM workers;'''                         
+    cursor.execute(query,())
+    result = cursor.fetchall()
+    myls = []
+    if (len(result) >= 30):
+        myls = result[-30:]
+    else:
+        myls = result
+    temp = []
+    for x in range(len(myls)):
+        date_time_str = myls[x][2]
+        date_time_obj = datetime.strptime(date_time_str, '%Y-%m-%d %H:%M:%S.%f')
+        hour = date_time_obj.hour
+        minute = date_time_obj.minute
+        time = hour + minute/60
+        temp.append([time, myls[x][1]])
+        
+    return render_template('home.html', num=num, worker=temp)
 
 @manager.route('/workers', methods=['GET'])
 def workers():
+    """
+    workers() - Displays detailed charts of each worker's cpu utilization and http request rate. 
+    """
     ec2 = boto3.resource('ec2')
     instances = ec2.instances.all()
     client = boto3.client('cloudwatch')
@@ -126,16 +151,28 @@ def workers():
 
 @manager.route('/auto-scale-policy', methods=['GET', 'POST'])
 def auto_scaler_configuration():
+    '''
+    auto_scaler_configuration() - puts the admin's auto-scaler configuration into the manager database to be used by the background scaler
+    '''
     if request.method == "POST":
         cpu_increase = request.form.get('cpu_increase')
         cpu_decrease = request.form.get('cpu_decrease')
         ratio_increase = request.form.get('ratio_increase')
         ratio_decrease = request.form.get('ratio_decrease')
+        scaling_option = request.form.get('option')
+        con = get_db_manager()
+        cursor = con.cursor()
+        query = '''INSERT INTO scaling (increase, decrease, expand, shrink, auto) VALUES (%s, %s, %s, %s, %s);'''                         
+        cursor.execute(query,(cpu_increase, cpu_decrease, ratio_increase, ratio_decrease, scaling_option))
+        con.commit()
 
     return render_template('auto-scaler.html')
 
 @manager.route('/add-remove', methods=['GET', 'POST'])
 def add_remove():
+    '''
+    add_remove() - Manually adds or removes worker instances.
+    '''
     if request.method == "POST":
         ec2 = boto3.resource('ec2')
         ec2_client = boto3.client('ec2')
@@ -177,14 +214,32 @@ def add_remove():
 
 @manager.route('/stop-application', methods=['GET', 'POST'])
 def stop_application():
+    '''
+    stop_application() - Stops all running instances and stops the manager. 
+    '''
     if request.method == "POST":
         if request.form.get('stop') == 'stopped': 
+            ec2 = boto3.resource('ec2')
             ec2_client = boto3.client('ec2')
+            instances = ec2.instances.all()
+            active_instances = []
+            for x, instance in enumerate(instances):
+                if (instance.tags[0]['Key'] == 'worker' and instance.state['Name'] == 'running'):           
+                    active_instances.append(instance.instance_id)
+            for x in range(len(active_instances)):
+                response = ec2_client.stop_instances(InstanceIds=[active_instances[x]])
+            
+            
+            ec2_client.stop_instances(InstanceIds=['i-083fb7b1707d80af1'])
+            
 
     return redirect("/home")
 
 @manager.route('/delete-application-data', methods=['GET', 'POST'])
 def delete_application_data():
+    '''
+    delete_application_data() - deletes all user application data from s3 and rds
+    '''
     if request.method == "POST":
         if request.form.get('delete') == 'deleted': 
             ec2_client = boto3.client('ec2')

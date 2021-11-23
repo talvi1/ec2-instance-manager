@@ -1,0 +1,924 @@
+[2021-11-23 01:13:13 +0000] [1484] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 01:13:13 +0000] [1484] [INFO] Listening at: http://0.0.0.0:5000 (1484)
+[2021-11-23 01:13:13 +0000] [1484] [INFO] Using worker: sync
+[2021-11-23 01:13:13 +0000] [1486] [INFO] Booting worker with pid: 1486
+[2021-11-23 01:14:12 +0000] [1484] [INFO] Handling signal: winch
+[2021-11-23 01:15:53 +0000] [1484] [INFO] Handling signal: winch
+[2021-11-23 01:15:53 +0000] [1484] [INFO] Handling signal: winch
+[2021-11-23 01:15:54 +0000] [1484] [INFO] Handling signal: winch
+[2021-11-23 01:15:54 +0000] [1484] [INFO] Handling signal: winch
+[2021-11-23 01:36:49 +0000] [1484] [INFO] Handling signal: winch
+[2021-11-23 02:07:12 +0000] [1484] [INFO] Handling signal: winch
+[2021-11-23 02:11:02 +0000] [1484] [INFO] Handling signal: winch
+[2021-11-23 02:11:06 +0000] [1484] [INFO] Handling signal: winch
+[2021-11-23 02:11:31 +0000] [1484] [INFO] Handling signal: winch
+[2021-11-23 02:11:35 +0000] [1484] [INFO] Handling signal: int
+[2021-11-23 02:11:35 +0000] [1486] [INFO] Worker exiting (pid: 1486)
+[2021-11-23 02:11:35 +0000] [1484] [INFO] Shutting down: Master
+[2021-11-23 02:11:37 +0000] [5235] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 02:11:37 +0000] [5235] [INFO] Listening at: http://0.0.0.0:5000 (5235)
+[2021-11-23 02:11:37 +0000] [5235] [INFO] Using worker: sync
+[2021-11-23 02:11:37 +0000] [5237] [INFO] Booting worker with pid: 5237
+[2021-11-23 02:11:37 +0000] [5237] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 5, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 198
+    active_instances.append(instance.instance_id)
+    ^
+IndentationError: expected an indented block
+[2021-11-23 02:11:37 +0000] [5237] [INFO] Worker exiting (pid: 5237)
+[2021-11-23 02:11:37 +0000] [5235] [INFO] Shutting down: Master
+[2021-11-23 02:11:37 +0000] [5235] [INFO] Reason: Worker failed to boot.
+[2021-11-23 02:11:41 +0000] [5251] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 02:11:41 +0000] [5251] [INFO] Listening at: http://0.0.0.0:5000 (5251)
+[2021-11-23 02:11:41 +0000] [5251] [INFO] Using worker: sync
+[2021-11-23 02:11:41 +0000] [5253] [INFO] Booting worker with pid: 5253
+[2021-11-23 02:11:42 +0000] [5253] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 5, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 198
+    active_instances.append(instance.instance_id)
+    ^
+IndentationError: expected an indented block
+[2021-11-23 02:11:42 +0000] [5253] [INFO] Worker exiting (pid: 5253)
+[2021-11-23 02:11:42 +0000] [5251] [INFO] Shutting down: Master
+[2021-11-23 02:11:42 +0000] [5251] [INFO] Reason: Worker failed to boot.
+[2021-11-23 02:11:49 +0000] [5281] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 02:11:49 +0000] [5281] [INFO] Listening at: http://0.0.0.0:5000 (5281)
+[2021-11-23 02:11:49 +0000] [5281] [INFO] Using worker: sync
+[2021-11-23 02:11:49 +0000] [5283] [INFO] Booting worker with pid: 5283
+[2021-11-23 02:11:49 +0000] [5283] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 5, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 198
+    active_instances.append(instance.instance_id)
+    ^
+IndentationError: expected an indented block
+[2021-11-23 02:11:49 +0000] [5283] [INFO] Worker exiting (pid: 5283)
+[2021-11-23 02:11:49 +0000] [5281] [INFO] Shutting down: Master
+[2021-11-23 02:11:49 +0000] [5281] [INFO] Reason: Worker failed to boot.
+[2021-11-23 02:12:47 +0000] [5403] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 02:12:47 +0000] [5403] [INFO] Listening at: http://0.0.0.0:5000 (5403)
+[2021-11-23 02:12:47 +0000] [5403] [INFO] Using worker: sync
+[2021-11-23 02:12:47 +0000] [5405] [INFO] Booting worker with pid: 5405
+[2021-11-23 02:12:47 +0000] [5405] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 5, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 198
+    active_instances.append(instance.instance_id)
+    ^
+IndentationError: expected an indented block
+[2021-11-23 02:12:47 +0000] [5405] [INFO] Worker exiting (pid: 5405)
+[2021-11-23 02:12:47 +0000] [5403] [INFO] Shutting down: Master
+[2021-11-23 02:12:47 +0000] [5403] [INFO] Reason: Worker failed to boot.
+[2021-11-23 02:16:45 +0000] [5649] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 02:16:45 +0000] [5649] [INFO] Listening at: http://0.0.0.0:5000 (5649)
+[2021-11-23 02:16:45 +0000] [5649] [INFO] Using worker: sync
+[2021-11-23 02:16:45 +0000] [5651] [INFO] Booting worker with pid: 5651
+[2021-11-23 02:16:46 +0000] [5651] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 5, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 4, in <module>
+    from flask_apscheduler import APScheduler
+ModuleNotFoundError: No module named 'flask_apscheduler'
+[2021-11-23 02:16:46 +0000] [5651] [INFO] Worker exiting (pid: 5651)
+[2021-11-23 02:16:46 +0000] [5649] [INFO] Shutting down: Master
+[2021-11-23 02:16:46 +0000] [5649] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:31:40 +0000] [1924] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:31:40 +0000] [1924] [INFO] Listening at: http://0.0.0.0:5000 (1924)
+[2021-11-23 03:31:40 +0000] [1924] [INFO] Using worker: sync
+[2021-11-23 03:31:40 +0000] [1926] [INFO] Booting worker with pid: 1926
+[2021-11-23 03:31:41 +0000] [1926] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 6, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 4, in <module>
+    from flask_apscheduler import APScheduler
+ModuleNotFoundError: No module named 'flask_apscheduler'
+[2021-11-23 03:31:41 +0000] [1926] [INFO] Worker exiting (pid: 1926)
+[2021-11-23 03:31:41 +0000] [1924] [INFO] Shutting down: Master
+[2021-11-23 03:31:41 +0000] [1924] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:32:45 +0000] [2119] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:32:45 +0000] [2119] [INFO] Listening at: http://0.0.0.0:5000 (2119)
+[2021-11-23 03:32:45 +0000] [2119] [INFO] Using worker: sync
+[2021-11-23 03:32:46 +0000] [2121] [INFO] Booting worker with pid: 2121
+[2021-11-23 03:32:46 +0000] [2121] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 6, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 4, in <module>
+    from flask_apscheduler import APScheduler
+ModuleNotFoundError: No module named 'flask_apscheduler'
+[2021-11-23 03:32:46 +0000] [2121] [INFO] Worker exiting (pid: 2121)
+[2021-11-23 03:32:46 +0000] [2119] [INFO] Shutting down: Master
+[2021-11-23 03:32:46 +0000] [2119] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:34:39 +0000] [2310] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:34:39 +0000] [2310] [INFO] Listening at: http://0.0.0.0:5000 (2310)
+[2021-11-23 03:34:39 +0000] [2310] [INFO] Using worker: sync
+[2021-11-23 03:34:39 +0000] [2312] [INFO] Booting worker with pid: 2312
+[2021-11-23 03:34:39 +0000] [2312] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 6, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 4, in <module>
+    from flask_apscheduler import APScheduler
+ModuleNotFoundError: No module named 'flask_apscheduler'
+[2021-11-23 03:34:39 +0000] [2312] [INFO] Worker exiting (pid: 2312)
+[2021-11-23 03:34:39 +0000] [2310] [INFO] Shutting down: Master
+[2021-11-23 03:34:39 +0000] [2310] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:35:02 +0000] [2356] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:35:02 +0000] [2356] [INFO] Listening at: http://0.0.0.0:5000 (2356)
+[2021-11-23 03:35:02 +0000] [2356] [INFO] Using worker: sync
+[2021-11-23 03:35:02 +0000] [2358] [INFO] Booting worker with pid: 2358
+[2021-11-23 03:35:02 +0000] [2358] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 6, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 4, in <module>
+    from flask_apscheduler import APScheduler
+ModuleNotFoundError: No module named 'flask_apscheduler'
+[2021-11-23 03:35:02 +0000] [2358] [INFO] Worker exiting (pid: 2358)
+[2021-11-23 03:35:02 +0000] [2356] [INFO] Shutting down: Master
+[2021-11-23 03:35:02 +0000] [2356] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:36:40 +0000] [2440] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:36:40 +0000] [2440] [INFO] Listening at: http://0.0.0.0:5000 (2440)
+[2021-11-23 03:36:40 +0000] [2440] [INFO] Using worker: sync
+[2021-11-23 03:36:40 +0000] [2442] [INFO] Booting worker with pid: 2442
+[2021-11-23 03:36:40 +0000] [2442] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 6, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 4, in <module>
+    from flask_apscheduler import APScheduler
+ModuleNotFoundError: No module named 'flask_apscheduler'
+[2021-11-23 03:36:40 +0000] [2442] [INFO] Worker exiting (pid: 2442)
+[2021-11-23 03:36:40 +0000] [2440] [INFO] Shutting down: Master
+[2021-11-23 03:36:40 +0000] [2440] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:37:23 +0000] [2494] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:37:23 +0000] [2494] [INFO] Listening at: http://0.0.0.0:5000 (2494)
+[2021-11-23 03:37:23 +0000] [2494] [INFO] Using worker: sync
+[2021-11-23 03:37:23 +0000] [2496] [INFO] Booting worker with pid: 2496
+[2021-11-23 03:37:23 +0000] [2496] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 6, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 4, in <module>
+    from flask_apscheduler import APScheduler
+ModuleNotFoundError: No module named 'flask_apscheduler'
+[2021-11-23 03:37:23 +0000] [2496] [INFO] Worker exiting (pid: 2496)
+[2021-11-23 03:37:23 +0000] [2494] [INFO] Shutting down: Master
+[2021-11-23 03:37:23 +0000] [2494] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:37:50 +0000] [2548] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:37:50 +0000] [2548] [INFO] Listening at: http://0.0.0.0:5000 (2548)
+[2021-11-23 03:37:50 +0000] [2548] [INFO] Using worker: sync
+[2021-11-23 03:37:50 +0000] [2550] [INFO] Booting worker with pid: 2550
+[2021-11-23 03:37:50 +0000] [2550] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 6, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 4, in <module>
+    from flask_apscheduler import APScheduler
+ModuleNotFoundError: No module named 'flask_apscheduler'
+[2021-11-23 03:37:50 +0000] [2550] [INFO] Worker exiting (pid: 2550)
+[2021-11-23 03:37:50 +0000] [2548] [INFO] Shutting down: Master
+[2021-11-23 03:37:50 +0000] [2548] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:42:07 +0000] [2760] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:42:07 +0000] [2760] [INFO] Listening at: http://0.0.0.0:5000 (2760)
+[2021-11-23 03:42:07 +0000] [2760] [INFO] Using worker: sync
+[2021-11-23 03:42:07 +0000] [2762] [INFO] Booting worker with pid: 2762
+[2021-11-23 03:42:08 +0000] [2762] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 6, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 8, in <module>
+    from ec2_metadata import ec2_metadata
+ModuleNotFoundError: No module named 'ec2_metadata'
+[2021-11-23 03:42:08 +0000] [2762] [INFO] Worker exiting (pid: 2762)
+[2021-11-23 03:42:08 +0000] [2760] [INFO] Shutting down: Master
+[2021-11-23 03:42:08 +0000] [2760] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:42:49 +0000] [2832] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:42:49 +0000] [2832] [INFO] Listening at: http://0.0.0.0:5000 (2832)
+[2021-11-23 03:42:49 +0000] [2832] [INFO] Using worker: sync
+[2021-11-23 03:42:49 +0000] [2834] [INFO] Booting worker with pid: 2834
+[2021-11-23 03:42:50 +0000] [2834] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 5, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 8, in <module>
+    from ec2_metadata import ec2_metadata
+ModuleNotFoundError: No module named 'ec2_metadata'
+[2021-11-23 03:42:50 +0000] [2834] [INFO] Worker exiting (pid: 2834)
+[2021-11-23 03:42:50 +0000] [2832] [INFO] Shutting down: Master
+[2021-11-23 03:42:50 +0000] [2832] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:43:45 +0000] [2882] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:43:45 +0000] [2882] [INFO] Listening at: http://0.0.0.0:5000 (2882)
+[2021-11-23 03:43:45 +0000] [2882] [INFO] Using worker: sync
+[2021-11-23 03:43:45 +0000] [2884] [INFO] Booting worker with pid: 2884
+[2021-11-23 03:43:45 +0000] [2884] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 5, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 6, in <module>
+    from ec2_metadata import ec2_metadata
+ModuleNotFoundError: No module named 'ec2_metadata'
+[2021-11-23 03:43:45 +0000] [2884] [INFO] Worker exiting (pid: 2884)
+[2021-11-23 03:43:45 +0000] [2882] [INFO] Shutting down: Master
+[2021-11-23 03:43:45 +0000] [2882] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:44:10 +0000] [2966] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:44:10 +0000] [2966] [INFO] Listening at: http://0.0.0.0:5000 (2966)
+[2021-11-23 03:44:10 +0000] [2966] [INFO] Using worker: sync
+[2021-11-23 03:44:10 +0000] [2968] [INFO] Booting worker with pid: 2968
+[2021-11-23 03:44:10 +0000] [2968] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 5, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 6, in <module>
+    from ec2_metadata import ec2_metadata
+ModuleNotFoundError: No module named 'ec2_metadata'
+[2021-11-23 03:44:10 +0000] [2968] [INFO] Worker exiting (pid: 2968)
+[2021-11-23 03:44:10 +0000] [2966] [INFO] Shutting down: Master
+[2021-11-23 03:44:10 +0000] [2966] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:44:33 +0000] [3021] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:44:33 +0000] [3021] [INFO] Listening at: http://0.0.0.0:5000 (3021)
+[2021-11-23 03:44:33 +0000] [3021] [INFO] Using worker: sync
+[2021-11-23 03:44:33 +0000] [3023] [INFO] Booting worker with pid: 3023
+[2021-11-23 03:44:46 +0000] [3021] [INFO] Handling signal: int
+[2021-11-23 03:44:46 +0000] [3023] [INFO] Worker exiting (pid: 3023)
+[2021-11-23 03:44:46 +0000] [3021] [INFO] Shutting down: Master
+[2021-11-23 03:46:38 +0000] [3234] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:46:38 +0000] [3234] [INFO] Listening at: http://0.0.0.0:5000 (3234)
+[2021-11-23 03:46:38 +0000] [3234] [INFO] Using worker: sync
+[2021-11-23 03:46:38 +0000] [3236] [INFO] Booting worker with pid: 3236
+[2021-11-23 03:46:39 +0000] [3236] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 7, in <module>
+    ec2 = boto3.resource('ec2')
+NameError: name 'boto3' is not defined
+[2021-11-23 03:46:39 +0000] [3236] [INFO] Worker exiting (pid: 3236)
+[2021-11-23 03:46:39 +0000] [3234] [INFO] Shutting down: Master
+[2021-11-23 03:46:39 +0000] [3234] [INFO] Reason: Worker failed to boot.
+[2021-11-23 03:46:58 +0000] [3285] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:46:58 +0000] [3285] [INFO] Listening at: http://0.0.0.0:5000 (3285)
+[2021-11-23 03:46:58 +0000] [3285] [INFO] Using worker: sync
+[2021-11-23 03:46:58 +0000] [3287] [INFO] Booting worker with pid: 3287
+[2021-11-23 03:47:08,455] ERROR in app: Exception on /home [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 57, in home_page
+    con = get_db_manager()
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 28, in get_db_manager
+    db = g._database = connect_to_database_manager()
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 15, in connect_to_database_manager
+    return mysql.connector.connect(user=db_config_manager['user'],
+NameError: name 'db_config_manager' is not defined
+[2021-11-23 03:48:28 +0000] [3285] [INFO] Handling signal: int
+[2021-11-23 03:48:28 +0000] [3287] [INFO] Worker exiting (pid: 3287)
+[2021-11-23 03:48:28 +0000] [3285] [INFO] Shutting down: Master
+[2021-11-23 03:48:29 +0000] [3361] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:48:29 +0000] [3361] [INFO] Listening at: http://0.0.0.0:5000 (3361)
+[2021-11-23 03:48:29 +0000] [3361] [INFO] Using worker: sync
+[2021-11-23 03:48:29 +0000] [3363] [INFO] Booting worker with pid: 3363
+[2021-11-23 03:48:31,963] ERROR in app: Exception on /home [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 57, in home_page
+    con = get_db_manager()
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 28, in get_db_manager
+    db = g._database = connect_to_database_manager()
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 15, in connect_to_database_manager
+    return mysql.connector.connect(user=db_config_manager['user'],
+NameError: name 'db_config_manager' is not defined
+[2021-11-23 03:48:51 +0000] [3361] [INFO] Handling signal: int
+[2021-11-23 03:48:51 +0000] [3363] [INFO] Worker exiting (pid: 3363)
+[2021-11-23 03:48:51 +0000] [3361] [INFO] Shutting down: Master
+[2021-11-23 03:50:44 +0000] [3572] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:50:44 +0000] [3572] [INFO] Listening at: http://0.0.0.0:5000 (3572)
+[2021-11-23 03:50:44 +0000] [3572] [INFO] Using worker: sync
+[2021-11-23 03:50:44 +0000] [3574] [INFO] Booting worker with pid: 3574
+[2021-11-23 03:51:19 +0000] [3572] [INFO] Handling signal: winch
+[2021-11-23 03:53:30 +0000] [3572] [CRITICAL] WORKER TIMEOUT (pid:3574)
+                                                                                                                                                                                                                                                                                                                                                                                                                                          [2021-11-23 03:57:15 +0000] [1377] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:57:15 +0000] [1377] [INFO] Listening at: http://0.0.0.0:5000 (1377)
+[2021-11-23 03:57:15 +0000] [1377] [INFO] Using worker: sync
+[2021-11-23 03:57:15 +0000] [1379] [INFO] Booting worker with pid: 1379
+[2021-11-23 03:58:38 +0000] [1377] [INFO] Handling signal: int
+[2021-11-23 03:58:38 +0000] [1379] [INFO] Worker exiting (pid: 1379)
+[2021-11-23 03:58:38 +0000] [1377] [INFO] Shutting down: Master
+[2021-11-23 03:59:02 +0000] [1780] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 03:59:02 +0000] [1780] [INFO] Listening at: http://0.0.0.0:5000 (1780)
+[2021-11-23 03:59:02 +0000] [1780] [INFO] Using worker: sync
+[2021-11-23 03:59:02 +0000] [1785] [INFO] Booting worker with pid: 1785
+[2021-11-23 03:59:29 +0000] [1780] [INFO] Handling signal: int
+[2021-11-23 03:59:29 +0000] [1785] [INFO] Worker exiting (pid: 1785)
+[2021-11-23 03:59:30 +0000] [1780] [INFO] Shutting down: Master
+[2021-11-23 04:04:13 +0000] [3211] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 04:04:13 +0000] [3211] [INFO] Listening at: http://0.0.0.0:5000 (3211)
+[2021-11-23 04:04:13 +0000] [3211] [INFO] Using worker: sync
+[2021-11-23 04:04:13 +0000] [3213] [INFO] Booting worker with pid: 3213
+[2021-11-23 04:19:18,803] ERROR in app: Exception on /stop-application [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 212, in stop_application
+    return render_template('home.html', num=num, error=error_msg)
+NameError: name 'active_instances' is not defined
+[2021-11-23 04:19:28,005] ERROR in app: Exception on /stop-application [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 212, in stop_application
+    return render_template('home.html', num=num, error=error_msg)
+NameError: name 'active_instances' is not defined
+[2021-11-23 04:20:52 +0000] [3213] [INFO] Worker exiting (pid: 3213)
+[2021-11-23 04:20:52 +0000] [3211] [INFO] Handling signal: term
+[2021-11-23 04:20:53 +0000] [3211] [INFO] Shutting down: Master
+[2021-11-23 04:21:16 +0000] [7506] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 04:21:16 +0000] [7506] [INFO] Listening at: http://0.0.0.0:5000 (7506)
+[2021-11-23 04:21:16 +0000] [7506] [INFO] Using worker: sync
+[2021-11-23 04:21:16 +0000] [7508] [INFO] Booting worker with pid: 7508
+[2021-11-23 04:21:17 +0000] [7508] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/ec2-instance-manager/app/__init__.py", line 6, in <module>
+    from app import index
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 233
+    ec2_client.stop_instances(InstancesIDs=[i-083fb7b1707d80af1])
+                                                ^
+SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+[2021-11-23 04:21:17 +0000] [7508] [INFO] Worker exiting (pid: 7508)
+[2021-11-23 04:21:17 +0000] [7506] [INFO] Shutting down: Master
+[2021-11-23 04:21:17 +0000] [7506] [INFO] Reason: Worker failed to boot.
+[2021-11-23 04:21:44 +0000] [7668] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 04:21:44 +0000] [7668] [INFO] Listening at: http://0.0.0.0:5000 (7668)
+[2021-11-23 04:21:44 +0000] [7668] [INFO] Using worker: sync
+[2021-11-23 04:21:44 +0000] [7676] [INFO] Booting worker with pid: 7676
+[2021-11-23 04:21:54,914] ERROR in app: Exception on /stop-application [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 233, in stop_application
+    ec2_client.stop_instances(InstancesIDs=[b'i-083fb7b1707d80af1'])
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/botocore/client.py", line 386, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/botocore/client.py", line 677, in _make_api_call
+    request_dict = self._convert_to_request_dict(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/botocore/client.py", line 725, in _convert_to_request_dict
+    request_dict = self._serializer.serialize_to_request(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/botocore/validate.py", line 337, in serialize_to_request
+    raise ParamValidationError(report=report.generate_report())
+botocore.exceptions.ParamValidationError: Parameter validation failed:
+Missing required parameter in input: "InstanceIds"
+Unknown parameter in input: "InstancesIDs", must be one of: InstanceIds, Hibernate, DryRun, Force
+[2021-11-23 04:22:13 +0000] [7668] [INFO] Handling signal: int
+[2021-11-23 04:22:13 +0000] [7676] [INFO] Worker exiting (pid: 7676)
+[2021-11-23 04:22:13 +0000] [7668] [INFO] Shutting down: Master
+[2021-11-23 04:22:17 +0000] [7859] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 04:22:17 +0000] [7859] [INFO] Listening at: http://0.0.0.0:5000 (7859)
+[2021-11-23 04:22:17 +0000] [7859] [INFO] Using worker: sync
+[2021-11-23 04:22:17 +0000] [7861] [INFO] Booting worker with pid: 7861
+[2021-11-23 04:22:21,920] ERROR in app: Exception on /stop-application [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 233, in stop_application
+    ec2_client.stop_instances(InstancesIds=[b'i-083fb7b1707d80af1'])
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/botocore/client.py", line 386, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/botocore/client.py", line 677, in _make_api_call
+    request_dict = self._convert_to_request_dict(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/botocore/client.py", line 725, in _convert_to_request_dict
+    request_dict = self._serializer.serialize_to_request(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/botocore/validate.py", line 337, in serialize_to_request
+    raise ParamValidationError(report=report.generate_report())
+botocore.exceptions.ParamValidationError: Parameter validation failed:
+Missing required parameter in input: "InstanceIds"
+Unknown parameter in input: "InstancesIds", must be one of: InstanceIds, Hibernate, DryRun, Force
+[2021-11-23 04:22:37 +0000] [7859] [INFO] Handling signal: int
+[2021-11-23 04:22:37 +0000] [7861] [INFO] Worker exiting (pid: 7861)
+[2021-11-23 04:22:37 +0000] [7859] [INFO] Shutting down: Master
+[2021-11-23 04:22:41 +0000] [8022] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 04:22:41 +0000] [8022] [INFO] Listening at: http://0.0.0.0:5000 (8022)
+[2021-11-23 04:22:41 +0000] [8022] [INFO] Using worker: sync
+[2021-11-23 04:22:41 +0000] [8024] [INFO] Booting worker with pid: 8024
+[2021-11-23 04:22:52,082] ERROR in app: Exception on /stop-application [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 233, in stop_application
+    ec2_client.stop_instances(InstanceIds=[b'i-083fb7b1707d80af1'])
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/botocore/client.py", line 386, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/botocore/client.py", line 677, in _make_api_call
+    request_dict = self._convert_to_request_dict(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/botocore/client.py", line 725, in _convert_to_request_dict
+    request_dict = self._serializer.serialize_to_request(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/botocore/validate.py", line 337, in serialize_to_request
+    raise ParamValidationError(report=report.generate_report())
+botocore.exceptions.ParamValidationError: Parameter validation failed:
+Invalid type for parameter InstanceIds[0], value: b'i-083fb7b1707d80af1', type: <class 'bytes'>, valid types: <class 'str'>
+[2021-11-23 04:23:07 +0000] [8022] [INFO] Handling signal: int
+[2021-11-23 04:23:07 +0000] [8024] [INFO] Worker exiting (pid: 8024)
+[2021-11-23 04:23:07 +0000] [8022] [INFO] Shutting down: Master
+[2021-11-23 04:23:08 +0000] [8196] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 04:23:08 +0000] [8196] [INFO] Listening at: http://0.0.0.0:5000 (8196)
+[2021-11-23 04:23:08 +0000] [8196] [INFO] Using worker: sync
+[2021-11-23 04:23:08 +0000] [8198] [INFO] Booting worker with pid: 8198
+[2021-11-23 04:23:13 +0000] [8196] [INFO] Handling signal: hup
+[2021-11-23 04:23:13 +0000] [8196] [INFO] Hang up: Master
+[2021-11-23 04:23:13 +0000] [8196] [WARNING] Worker with pid 8198 was terminated due to signal 1
+[2021-11-23 04:23:13 +0000] [8196] [INFO] Handling signal: term
+[2021-11-23 04:23:13 +0000] [8257] [INFO] Booting worker with pid: 8257
+[2021-11-23 04:23:18,112] ERROR in app: Exception on /home [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 239, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 62, in home_page
+    con = get_db_manager()
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 29, in get_db_manager
+    db = g._database = connect_to_database_manager()
+  File "/home/ubuntu/ec2-instance-manager/app/index.py", line 16, in connect_to_database_manager
+    return mysql.connector.connect(user=db_config_manager['user'],
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/__init__.py", line 272, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 85, in __init__
+    self.connect(**kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/abstracts.py", line 1009, in connect
+    self._open_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 241, in _open_connection
+    raise errors.get_mysql_exception(msg=exc.msg, errno=exc.errno,
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+[2021-11-23 04:23:43 +0000] [8196] [WARNING] Worker with pid 8257 was terminated due to signal 9
+[2021-11-23 04:23:43 +0000] [8196] [INFO] Shutting down: Master
+[2021-11-23 04:30:08 +0000] [1468] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 04:30:08 +0000] [1468] [INFO] Listening at: http://0.0.0.0:5000 (1468)
+[2021-11-23 04:30:08 +0000] [1468] [INFO] Using worker: sync
+[2021-11-23 04:30:08 +0000] [1470] [INFO] Booting worker with pid: 1470
+[2021-11-23 04:30:18 +0000] [1468] [INFO] Handling signal: hup
+[2021-11-23 04:30:18 +0000] [1468] [INFO] Hang up: Master
+[2021-11-23 04:30:18 +0000] [1468] [WARNING] Worker with pid 1470 was terminated due to signal 1
+[2021-11-23 04:30:18 +0000] [1468] [INFO] Handling signal: term
+[2021-11-23 04:30:18 +0000] [1522] [INFO] Booting worker with pid: 1522
+[2021-11-23 04:30:49 +0000] [1468] [WARNING] Worker with pid 1522 was terminated due to signal 9
+[2021-11-23 04:30:49 +0000] [1468] [INFO] Shutting down: Master
+[2021-11-23 04:43:05 +0000] [1281] [INFO] Starting gunicorn 20.1.0
+[2021-11-23 04:43:05 +0000] [1281] [INFO] Listening at: http://0.0.0.0:5000 (1281)
+[2021-11-23 04:43:05 +0000] [1281] [INFO] Using worker: sync
+[2021-11-23 04:43:05 +0000] [1283] [INFO] Booting worker with pid: 1283
+[2021-11-23 04:43:10 +0000] [1281] [INFO] Handling signal: winch

@@ -17,6 +17,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 <li>Workers Being Started: {{num[2]}}</li>
 <li>Workers Being Stopped: {{num[3]}}</li>
 </ul>
+<div id="charts_worker"></div>
 <p><a href="/workers">Link to Detailed Worker Stats</a></p>
  
 <h2>Link to Load Balanced User App</h2>
@@ -40,6 +41,72 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 
 
 
+<script>
+    var worker_stats = {{worker | tojson}}
+    var wrapper = document.getElementById("charts_worker");
+    var charts = '';
+    charts = '<div style="width:100%;max-width:350px"><canvas id="myChart"></canvas></div>'
+    wrapper.innerHTML = charts
+    
+    function createChart(x_val, y_val, chart_id, stra)
+    {
+      var new_x = []
+      for (var i = 0; i < x_val.length; i++)
+      {
+        var time = x_val[i];
+        var hours = Math.floor(time);
+        var minutes = Math.round((time*60)%60);
+        console.log(minutes)
+        if (i%1 == 0)
+          var time_str = hours + ':' + minutes;
+        else 
+          var time_str = ''
+        new_x.push(time_str);
+      }
+      new Chart(chart_id, {
+      type: "line",
+      data: {
+        labels: new_x,
+        datasets: [{
+          fill: false,
+          lineTension: 0,
+          backgroundColor: "rgba(0,0,255,1.0)",
+          borderColor: "rgba(0,0,255,0.1)",
+          data: y_val
+        }]
+      },
+      options: {
+        legend: {display: false},
+        scales: {
+          yAxes: [{
+            display: true, 
+            scaleLabel:{
+              display: true,
+              labelString: stra
+            },
+            ticks: {min: 0, max: 10}
+          }],
+        }
+      }
+      });   
+    }
+    
+    var x_val = [];
+    var y_val = [];
+    for (var i = 0; i < worker_stats.length; i++)
+    {  
+      x_val.push(worker_stats[i][0]);
+      y_val.push(worker_stats[i][1]);
+    }
+    
+      createChart(x_val, y_val, 'myChart', 'Num. of Active Workers')
+    
+    
+    
+    
+    
+     
+    </script>
 </body>
 </html>
 
